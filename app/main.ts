@@ -1,9 +1,9 @@
 import * as net from "net";
-import { encodeRESPstring } from "./util";
+import { encodeRESPsimpleString, encodeRESPbulkString } from "./util";
 
 const server: net.Server = net.createServer((connection: net.Socket) => {
   connection.on('data', (d) => {
-    connection.write(Buffer.from(encodeRESPstring('PONG')));
+    connection.write(Buffer.from(encodeRESPsimpleString('PONG')));
   });
 });
 
